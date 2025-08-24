@@ -1,0 +1,30 @@
+{
+  "name": "ghostwriter-app",
+  "version": "1.0.0",
+  "description": "Ghostwriter Electron + React + ShadCN demo app",
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently \"cross-env NODE_ENV=development npm run dev:frontend\" \"cross-env NODE_ENV=development npm run dev:electron\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:electron": "wait-on tcp:5173 && electron .",
+    "build": "cd frontend && npm run build && cd .. && electron-builder",
+    "rebuild": "electron-rebuild",
+    "postinstall": "electron-rebuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-rebuild": "^3.2.9",
+    "wait-on": "^7.0.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "electron-prompt": "^1.7.0",
+    "express": "^5.1.0"
+  }
+}
